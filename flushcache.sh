@@ -1,5 +1,5 @@
 #!/bin/bash
-  VERSION=$ver
+  VER=1.0
 
   # Specify dependencies
   declare -a depends=("hdparm")
