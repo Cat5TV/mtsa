@@ -1,5 +1,5 @@
 #!/bin/bash
-  VER=1.0
+  source config.sh
 
   # Specify dependencies
   declare -a depends=("hdparm")
