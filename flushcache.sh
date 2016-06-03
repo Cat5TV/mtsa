@@ -1,4 +1,5 @@
 #!/bin/bash
+  source inc/systemconf.sh
   source config.sh
 
   # Specify dependencies
