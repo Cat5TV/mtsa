@@ -19,3 +19,6 @@ It's a good idea to run a lot of your minetestserver game in memory. Doing so ex
 
 ### build-minetest.sh
 #### Automatically build the most recent version of Minetest optimized exclusively for servers
+
+### stop-minetest.sh
+#### Safely shutdown all minetestserver instances for this user
