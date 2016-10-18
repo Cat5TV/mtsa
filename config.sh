@@ -12,3 +12,6 @@ mtbackup=
 
 # Minetest hard drive, eg., /dev/sda
 mtdev=
+
+# Minetest log folder, eg., /home/robbie/logs
+mtlogs=
