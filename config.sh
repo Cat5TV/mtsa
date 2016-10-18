@@ -15,3 +15,9 @@ mtdev=
 
 # Minetest log folder, eg., /home/robbie/logs
 mtlogs=
+
+# Minetest world base folder, eg., for /home/robbie/maps/myworld this would be /home/robbie/maps
+mtmaps=
+
+# Minetest configuration file folder, eg., /home/robbie/conf
+mtconf=
