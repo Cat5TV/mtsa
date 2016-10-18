@@ -26,7 +26,7 @@ else
   do
     # Sleep a bit longer than the map save to disk
     sleep 45
-    $PWD/flushcache.sh /dev/sda
+    $PWD/flushcache.sh $mtdev
     sleep 5
     if [ ! -f /tmp/mtsa-$mtuser-lock ]; then
       su $mtuser -c '
