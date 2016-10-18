@@ -5,9 +5,6 @@
   source inc/systemconf.sh
   source config.sh
 
-  # Specify dependencies
-  declare -a depends=("hdparm")
-
   echo "Minetest Server Admin for Linux"
   echo "By Robbie Ferguson - https://minetest.tv"
   echo "----------------------------------------"
@@ -29,10 +26,10 @@ else
   do
     # Sleep a bit longer than the map save to disk
     sleep 45
-    /home/robbie/scripts/flushcache.sh /dev/sda
+    $PWD/flushcache.sh /dev/sda
     sleep 5
     if [ ! -f /tmp/minetest.lock ]; then
-      su robbie -c '
+      su $mtuser -c '
         start_time=`date +%s`
         $mtgame/bin/minetestserver --config $mtconf/$SERVER.conf --logfile $mtlogs/$SERVER.log --map-dir $mtmaps/$SERVER &
         minepid=$!
