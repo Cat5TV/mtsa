@@ -28,7 +28,7 @@ else
     sleep 45
     $PWD/flushcache.sh /dev/sda
     sleep 5
-    if [ ! -f /tmp/minetest.lock ]; then
+    if [ ! -f /tmp/mtsa-$mtuser-lock ]; then
       su $mtuser -c '
         start_time=`date +%s`
         $mtgame/bin/minetestserver --config $mtconf/$SERVER.conf --logfile $mtlogs/$SERVER.log --map-dir $mtmaps/$SERVER &
