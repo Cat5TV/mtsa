@@ -1,7 +1,7 @@
 #!/bin/bash
 # Config file. You'll need to edit this to suit your setup.
 
-# Distinct Hosting Username, must be hard set, eg., robbie
+# Linux Username, must be hard set, eg., robbie
 # This prevents conflicts in a multi-user Minetest hosting environment
 # This needs to MATCH the Linux username, but cannot be created with
 # `whoami` due to the script being run as root.
