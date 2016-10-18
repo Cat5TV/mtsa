@@ -42,9 +42,9 @@ else
         echo Server was up for `expr $end_time - $start_time` seconds.
         rm mtsa-$mtuser-pid-$SERVER
 	# Create Log and Email it
-	echo $SERVER server crashed > /tmp/crash-$SERVER.log
-        echo Server was up for `expr $end_time - $start_time` seconds. >> /tmp/crash-$SERVER.log
-	tail -n 200 $mtlogs/testing.log >> /tmp/crash-$SERVER.log
+	echo $SERVER server crashed > /tmp/mtsa-$mtuser-crash-$SERVER.log
+        echo Server was up for `expr $end_time - $start_time` seconds. >> /tmp/mtsa-$mtuser-crash-$SERVER.log
+	tail -n 200 $mtlogs/testing.log >> /tmp/mtsa-$mtuser-crash-$SERVER.log
         sleep 5
       '
     fi
