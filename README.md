@@ -22,3 +22,4 @@ It's a good idea to run a lot of your minetestserver game in memory. Doing so ex
 
 ### stop-minetest.sh
 #### Safely shutdown all minetestserver instances for this user
+What better way to reduce the performance hit of constant map writes on your disk than to instead cache everything to memory. But the catch there is if the server crashes or you have to kill it forcibly, you'll lose the loaded chunks. No more! stop-minetest.sh from MTSA utilizes our flushcache.sh script and performs a safe shutdown of all loaded minetestserver instances based on their pid for the running user.
