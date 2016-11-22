@@ -9,6 +9,9 @@ exceptions=(
   'TenPlus1',
 )
 
+# 0 = no output, 1 = output
+output=1
+
 
 file=./cleanauth-interact-destroy.sh
 echo '#!/bin/bash' > $file
@@ -18,15 +21,15 @@ for player in `cat auth.txt`; do
    playername=${player%%:*}
    playerdata=${player#*:}
    if [[ $playerdata == *"nointeract"* ]]; then
-     printf "$playername does not have interact ";
+     if [[ $output = 1 ]] printf "$playername does not have interact ";
      if [[ "${exceptions[@]}" =~ "${playername}" ]]; then
-       echo "but is in the exceptions list."
+       if [[ $output = 1 ]] echo "but is in the exceptions list."
      else
-       echo "and is not in the exceptions list."
+       if [[ $output = 1 ]] echo "and is not in the exceptions list."
        echo "sed -i '/^$playername:/d' ./auth.txt" >> $file
      fi
    else
-     echo "$playername has interact.";
+     if [[ $output = 1 ]] echo "$playername has interact.";
    fi
 
 done
