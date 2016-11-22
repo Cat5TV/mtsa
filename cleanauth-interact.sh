@@ -21,15 +21,15 @@ for player in `cat auth.txt`; do
    playername=${player%%:*}
    playerdata=${player#*:}
    if [[ $playerdata == *"nointeract"* ]]; then
-     if [[ $output = 1 ]] printf "$playername does not have interact ";
+     if [[ $output = 1 ]]; then printf "$playername does not have interact "; fi
      if [[ "${exceptions[@]}" =~ "${playername}" ]]; then
-       if [[ $output = 1 ]] echo "but is in the exceptions list."
+       if [[ $output = 1 ]]; then echo "but is in the exceptions list."; fi
      else
-       if [[ $output = 1 ]] echo "and is not in the exceptions list."
+       if [[ $output = 1 ]]; then echo "and is not in the exceptions list."; fi
        echo "sed -i '/^$playername:/d' ./auth.txt" >> $file
      fi
    else
-     if [[ $output = 1 ]] echo "$playername has interact.";
+     if [[ $output = 1 ]]; then echo "$playername has interact."; fi
    fi
 
 done
