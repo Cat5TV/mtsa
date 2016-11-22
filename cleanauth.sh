@@ -3,7 +3,7 @@
 # It finds any users who don't actually exist, and gives you a simple script to purge them from auth.txt
 # Can automate running ./cleanplayers-destroy.sh after this executes, but by default it allows you to first review and edit before running it.
 
-file=./cleanplayers-destroy.sh
+file=./cleanauth-destroy.sh
 echo '#!/bin/bash' > $file
 echo "cp ./auth.txt auth.bak" >> $file
 
