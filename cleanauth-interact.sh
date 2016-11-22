@@ -30,7 +30,7 @@ for player in `cat auth.txt`; do
    fi
 
 done
-exit
+
 echo "echo Done. There is a backup auth.bak file, just in case." >> $file
 echo "rm $file" >> $file
 chmod +x $file
