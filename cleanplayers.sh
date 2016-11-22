@@ -6,16 +6,18 @@
 file=./cleanplayers-destroy.sh
 echo '#!/bin/bash' > $file
 echo "cp ./auth.txt auth.bak" >> $file
-while IFS=':' read -ra PLAYER; do
-  for i in "${PLAYER}"; do
-    if [[ -e "players/$i" ]]; then
-      echo "$i exists";
+
+for player in `cat auth.txt`; do
+   playername=${player%%:*}
+    if [[ -e "players/$playername" ]]; then
+      echo "$playername exists";
     else
-      echo "$i does not exist";
-      echo "sed -i '/^$i:/d' ./auth.txt" >> $file
+      echo "$playername does not exist";
+      echo "sed -i '/^$playername:/d' ./auth.txt" >> $file
     fi
-  done
-done <<< `cat auth.txt`
+
+done
+
 echo "echo Done. There is a backup auth.bak file, just in case." >> $file
 echo "rm $file" >> $file
 chmod +x $file
