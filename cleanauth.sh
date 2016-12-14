@@ -22,7 +22,7 @@ done
 
 # Loop through the player files and see if the player file exists in the array. If not, plan to delete the player file
 cd players
-for playerfile in "./*."; do
+for playerfile in "./"; do
   echo "Processing $playerfile file..."
   if [[ ! "\t${players[@]}\t" =~ "\t${playerfile}\t" ]]; then
     echo "rm ./players/$playerfile" >> $file
