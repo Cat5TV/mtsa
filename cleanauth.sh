@@ -24,12 +24,20 @@ done
 cd players
 printf "Working in "
 pwd
+
 for playerfile in *; do
   echo "Processing $playerfile file..."
-  if [[ ! "${players[@]}" =~ "\t${playerfile}\t" ]]; then
+  found=0
+  for player in "${players[@]}"; do
+      if [ "$player" == "\t$playerfile\t" ] ; then
+        found=1
+      fi
+  done
+  if [ "$found" -eq "0" ]; then
     echo "rm ./players/$playerfile" >> $file
   fi
 done
+
 cd ..
 printf '%s\n' "${players[@]}"
 
