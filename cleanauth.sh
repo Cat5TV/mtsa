@@ -26,15 +26,17 @@ printf "Working in "
 pwd
 
 for playerfile in *; do
-  echo "Processing $playerfile file..."
+  if [[ $output = 1 ]]; then printf "Processing $playerfile file..."; fi
   found=0
   for player in "${players[@]}"; do
       if [ "$player" == "\t$playerfile\t" ] ; then
         found=1
+        if [[ $output = 1 ]]; then echo " exists"; fi
       fi
   done
   if [ "$found" == "0" ]; then
     echo "rm ./players/$playerfile" >> $file
+    if [[ $output = 1 ]]; then echo " does not exist"; fi
   fi
 done
 
