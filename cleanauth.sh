@@ -31,7 +31,7 @@ for playerfile in *; do
   fi
 done
 cd ..
-printf '%s\n' "\t${players[@]}\t"
+printf '%s\n' "${players[@]}"
 
 echo "echo Done. There is a backup players-bak folder, just in case." >> $file
 echo "rm $file" >> $file
