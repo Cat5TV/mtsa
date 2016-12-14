@@ -35,5 +35,6 @@ cd ..
 echo "echo Done. There is a backup players.bak folder, just in case." >> $file
 echo "rm $file" >> $file
 chmod +x $file
+printf '%s\n' "${players[@]}"
 
 if [[ $autorun = 1 ]]; then $file; else echo "Done. Please read $file and run it if you approve."; fi
