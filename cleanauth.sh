@@ -26,12 +26,12 @@ printf "Working in "
 pwd
 for playerfile in *; do
   echo "Processing $playerfile file..."
-  if [[ ! "${players[@]}" =~ "\t${playerfile}\t" ]]; then
+  if [[ ! "\t${players[@]}\t" =~ "\t${playerfile}\t" ]]; then
     echo "rm ./players/$playerfile" >> $file
   fi
 done
 cd ..
-
+printf '%s\n' "\t${players[@]}\t"
 
 echo "echo Done. There is a backup players-bak folder, just in case." >> $file
 echo "rm $file" >> $file
