@@ -31,6 +31,7 @@ for playerfile in *; do
   for player in "${players[@]}"; do
       if [ "$player" == "\t$playerfile\t" ] ; then
         found=1
+        echo found
       fi
   done
   if [ "$found" -eq "0" ]; then
@@ -39,7 +40,6 @@ for playerfile in *; do
 done
 
 cd ..
-printf '%s\n' "${players[@]}"
 
 echo "echo Done. There is a backup players-bak folder, just in case." >> $file
 echo "rm $file" >> $file
