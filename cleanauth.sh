@@ -23,7 +23,7 @@ done
 # Loop through the player files and see if the player file exists in the array. If not, plan to delete the player file
 for playerfile in "./players/"; do
   echo "Processing $playerfile file..."
-  if [[ ! " ${players[@]} " =~ " ${$playerfile} " ]]; then
+  if [[ ! " ${players[@]} " =~ " ${playerfile} " ]]; then
     echo "rm ./players/$playerfile" >> $file
   fi
 done
