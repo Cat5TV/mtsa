@@ -17,7 +17,7 @@ output=1
 # Suggest you run it without auto-run first, review the script, and decide if you "trust" it before changing setting
 autorun=0
 
-file=./cleanauth-interact-destroy.sh
+file=cleanauth-interact-destroy.sh
 echo '#!/bin/bash' > $file
 echo "cp ./auth.txt auth.bak" >> $file
 
