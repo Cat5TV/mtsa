@@ -31,10 +31,9 @@ for playerfile in *; do
   for player in "${players[@]}"; do
       if [ "$player" == "\t$playerfile\t" ] ; then
         found=1
-        echo found
       fi
   done
-  if [ "$found" -eq "0" ]; then
+  if [ "$found" == "0" ]; then
     echo "rm ./players/$playerfile" >> $file
   fi
 done
