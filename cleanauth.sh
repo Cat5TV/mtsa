@@ -10,7 +10,7 @@ output=1
 # Suggest you run it without auto-run first, review the script, and decide if you "trust" it before changing setting
 autorun=0
 
-file=./cleanauth-destroy.sh
+file=cleanauth-destroy.sh
 echo '#!/bin/bash' > $file
 echo "cp -R ./players ./players-bak/" >> $file
 
@@ -36,7 +36,7 @@ for playerfile in *; do
   done
   if [ "$found" == "0" ]; then
     if [[ $output = 1 ]]; then echo " does not exist"; fi
-    echo "rm ./players/$playerfile" >> $file
+    echo "rm ./players/$playerfile" >> "../$file"
   fi
 done
 
