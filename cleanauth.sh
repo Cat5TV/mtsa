@@ -4,6 +4,7 @@
 # Can automate running ./cleanplayers-destroy.sh after this executes, but by default it allows you to first review and edit before running it.
 
 # 0 = no output, 1 = output
+# This script can take a long time on servers with a lot of players. Best have output the first time you run it just so you know what's going on.
 output=1
 
 # 0 = do not auto-run, 1 = auto-run after completion
