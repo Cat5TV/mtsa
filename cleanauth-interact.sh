@@ -15,7 +15,7 @@ output=1
 
 # 0 = do not auto-run, 1 = auto-run after completion
 # Suggest you run it without auto-run first, review the script, and decide if you "trust" it before changing setting
-$autorun=0
+autorun=0
 
 file=./cleanauth-interact-destroy.sh
 echo '#!/bin/bash' > $file
