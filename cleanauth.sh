@@ -17,9 +17,9 @@ echo "cp ./auth.txt auth.bak" >> $file
 for player in `cat auth.txt`; do
    playername=${player%%:*}
     if [[ -e "players/$playername" ]]; then
-      if [[ $output = 1 ]]; then echo "$playername exists";
+      if [[ $output = 1 ]]; then echo "$playername exists"; fi
     else
-      if [[ $output = 1 ]]; then echo "$playername does not exist";
+      if [[ $output = 1 ]]; then echo "$playername does not exist"; fi
       echo "rm 'players/$playername'" >> $file
     fi
 
