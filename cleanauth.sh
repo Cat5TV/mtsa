@@ -17,19 +17,19 @@ echo "cp -R ./players ./players-bak/" >> $file
 # Generate a list of players who exist in auth.txt
 players=()
 for player in `cat auth.txt`; do
-   players+=(${player%%:*})
+   players+=("\t${player%%:*}\t") # Adding tabs so Blah doesn't show positive for player BlahBlah
 done
 
 # Loop through the player files and see if the player file exists in the array. If not, plan to delete the player file
 cd players
 for playerfile in "*"; do
   echo "Processing $playerfile file..."
-  if [[ ! " ${players[@]} " =~ " ${playerfile} " ]]; then
+  if [[ ! "\t${players[@]}\t" =~ "\t${playerfile}\t" ]]; then
     echo "rm ./players/$playerfile" >> $file
   fi
 done
 cd ..
-
+printf '%s\n' "${players[@]}"
 
 
 echo "echo Done. There is a backup players.bak folder, just in case." >> $file
