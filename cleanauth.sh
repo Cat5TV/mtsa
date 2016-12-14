@@ -22,6 +22,7 @@ done
 
 # Loop through the player files and see if the player file exists in the array. If not, plan to delete the player file
 cd players
+pwd
 for playerfile in "*"; do
   echo "Processing $playerfile file..."
   if [[ ! "\t${players[@]}\t" =~ "\t${playerfile}\t" ]]; then
@@ -31,7 +32,7 @@ done
 cd ..
 
 
-echo "echo Done. There is a backup players.bak folder, just in case." >> $file
+echo "echo Done. There is a backup players-bak folder, just in case." >> $file
 echo "rm $file" >> $file
 chmod +x $file
 
