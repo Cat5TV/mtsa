@@ -14,16 +14,20 @@ file=./cleanauth-destroy.sh
 echo '#!/bin/bash' > $file
 echo "cp -R ./players ./players-bak/" >> $file
 
+# Generate a list of players who exist in auth.txt
+players=()
 for player in `cat auth.txt`; do
-   playername=${player%%:*}
-    if [[ -e "players/$playername" ]]; then
-      if [[ $output = 1 ]]; then echo "$playername exists"; fi
-    else
-      if [[ $output = 1 ]]; then echo "$playername does not exist"; fi
-      echo "rm 'players/$playername'" >> $file
-    fi
-
+   players+=(${player%%:*})
 done
+
+# Loop through the player files and see if the player file exists in the array. If not, plan to delete the player file
+for playerfile in "./players/"; do
+  echo "Processing $playerfile file..."
+  if [[ ! " ${players[@]} " =~ " ${playerfile} " ]]; then
+    echo "rm ./players/$playerfile" >> $file
+  fi
+done
+
 
 echo "echo Done. There is a backup players.bak folder, just in case." >> $file
 echo "rm $file" >> $file
