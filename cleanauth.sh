@@ -12,7 +12,7 @@ $autorun=0
 
 file=./cleanauth-destroy.sh
 echo '#!/bin/bash' > $file
-echo "cp ./auth.txt auth.bak" >> $file
+echo "cp -R ./players ./players-bak/" >> $file
 
 for player in `cat auth.txt`; do
    playername=${player%%:*}
@@ -25,7 +25,7 @@ for player in `cat auth.txt`; do
 
 done
 
-echo "echo Done. There is a backup auth.bak file, just in case." >> $file
+echo "echo Done. There is a backup players.bak folder, just in case." >> $file
 echo "rm $file" >> $file
 chmod +x $file
 
