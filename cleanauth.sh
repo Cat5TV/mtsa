@@ -35,7 +35,7 @@ for playerfile in *; do
       fi
   done
   if [ "$found" == "0" ]; then
-    echo "rm ./players/$playerfile"
+    echo "rm ./players/$playerfile" >> ${file}
     if [[ $output = 1 ]]; then echo " does not exist"; fi
   fi
 done
