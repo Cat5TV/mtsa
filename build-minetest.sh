@@ -27,7 +27,7 @@ else
   fi
 
 	echo INSTALLING MINETEST
-	apt-get -y install build-essential cmake git libirrlicht-dev libbz2-dev libgettextpo-dev libfreetype6-dev libpng12-dev libjpeg8-dev libxxf86vm-dev libgl1-mesa-dev libsqlite3-dev libogg-dev libvorbis-dev libopenal-dev libhiredis-dev libcurl3-dev unzip
+	apt-get -y install build-essential cmake git libirrlicht-dev libbz2-dev libgettextpo-dev libfreetype6-dev libpng12-dev libjpeg62-turbo-dev libxxf86vm-dev libgl1-mesa-dev libsqlite3-dev libogg-dev libvorbis-dev libopenal-dev libhiredis-dev libcurl3-dev unzip
 
 # Keep two days worth just for FAST recovery in case of issue
   rm -rf $mtgame~~
@@ -39,6 +39,7 @@ else
 	# Required for removal of dependency on X
 	cd /tmp
 	mkdir $mtuser
+	chown $mtuser:$mtuser $mtuser
 	cd $mtuser
 	mkdir irrlicht
 	cd irrlicht
@@ -59,7 +60,7 @@ else
 	###
 
 	# Compile
-	cmake . -DENABLE_GETTEXT=1 -DENABLE_FREETYPE=1 -DENABLE_LEVELDB=1 -DENABLE_REDIS=1 -DBUILD_CLIENT=0 -DCMAKE_BUILD_TYPE=Release -DIRRLICHT_SOURCE_DIR=/tmp/irrlicht/irrlicht-1.8.3
+	cmake . -DENABLE_GETTEXT=1 -DENABLE_FREETYPE=1 -DENABLE_LEVELDB=1 -DENABLE_REDIS=1 -DBUILD_CLIENT=0 -DCMAKE_BUILD_TYPE=Release -DIRRLICHT_SOURCE_DIR=/tmp/$mtuser/irrlicht/irrlicht-1.8.3
 	make -j$(grep -c processor /proc/cpuinfo)
 
 	# Move to the correct location
