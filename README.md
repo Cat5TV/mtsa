@@ -33,3 +33,6 @@ It finds any users who don't have interact (actually, who have the nointeract pr
 #### Removes players/ file if the player doesn't exist in auth.txt
 Run this in the world's folder, same location as auth.txt.
 It finds any users who don't actually exist in auth.txt, and gives you a simple script to purge them from auth.txt
+
+### To Do
+- write a bash script to create worlds, requesting seed (or generating randomly) and so-on
