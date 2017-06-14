@@ -31,20 +31,20 @@ else
     if [ ! -f /tmp/mtsa-$mtuser-lock ]; then
       su $mtuser -c '
         start_time=`date +%s`
-        $mtgame/bin/minetestserver --config $mtconf/$SERVER.conf --logfile $mtlogs/$SERVER.log --map-dir $mtmaps/$SERVER &
+        "'$mtgame'"/bin/minetestserver --config "'$mtconf'"/"'$SERVER'".conf --logfile "'$mtlogs'"/"'$SERVER'".log --map-dir "'$mtmaps'"/"'$SERVER'" &
         minepid=$!
-        echo $minepid > /tmp/mtsa-$mtuser-pid-$SERVER
+        echo $minepid > /tmp/mtsa-"'$mtuser'"-pid-"'$SERVER'"
         wait $minepid
         # Clearing player list in logs
           CLEARED="Minetest Stopped. List of players: "
-          echo $CLEARED >> $mtlogs/$SERVER.log
+          echo $CLEARED >> "'$mtlogs'"/"'$SERVER'".log
         end_time=`date +%s`
         echo Server was up for `expr $end_time - $start_time` seconds.
-        rm mtsa-$mtuser-pid-$SERVER
+        rm mtsa-"'$mtuser'"-pid-$SERVER
 	# Create Log and Email it
-	echo $SERVER server crashed > /tmp/mtsa-$mtuser-crash-$SERVER.log
-        echo Server was up for `expr $end_time - $start_time` seconds. >> /tmp/mtsa-$mtuser-crash-$SERVER.log
-	tail -n 200 $mtlogs/testing.log >> /tmp/mtsa-$mtuser-crash-$SERVER.log
+	echo $SERVER server crashed > /tmp/mtsa-"'$mtuser'"-crash-$SERVER.log
+        echo Server was up for `expr $end_time - $start_time` seconds. >> /tmp/mtsa-"'$mtuser'"-crash-"'$SERVER'".log
+	tail -n 200 "'$mtlogs'"/testing.log >> /tmp/mtsa-"'$mtuser'"-crash-$SERVER.log
         sleep 5
       '
     fi
