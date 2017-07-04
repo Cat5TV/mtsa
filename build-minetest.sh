@@ -16,8 +16,6 @@ if [[ $EUID -ne 0 ]]; then
   echo "ERROR: You must be a root" 2>&1
   exit 1
 else
-  BASEDIR=$(dirname "$0")
-  
   source ./inc/check-depends.sh
 
   if [ "$(pidof minetestserver)" ] 
