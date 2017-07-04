@@ -5,25 +5,25 @@
 # This prevents conflicts in a multi-user Minetest hosting environment
 # This needs to MATCH the Linux username, but cannot be created with
 # `whoami` due to the script being run as root.
-mtuser=
+mtuser=robbie
 
 # Minetest game folder, eg., /home/robbie/minetest
-mtgame=
+mtgame=/home/robbie/minetest
 
 # Minetest mod folder, eg., /home/robbie/.minetest/mods
-mtmod=
+mtmod=/home/robbie/.minetest/mods
 
 # Where to save your backups, eg., /home/robbie/backups
-mtbackup=
+mtbackup=/home/robbie/backups
 
 # Minetest hard drive, eg., /dev/sda
-mtdev=
+mtdev=/dev/sda
 
 # Minetest log folder, eg., /home/robbie/logs
-mtlogs=
+mtlogs=/home/robbie/logs
 
 # Minetest world base folder, eg., for /home/robbie/maps/myworld this would be /home/robbie/maps
-mtmaps=
+mtmaps=/home/robbie/maps
 
 # Minetest configuration file folder, eg., /home/robbie/conf
-mtconf=
+mtconf=/home/robbie/conf
